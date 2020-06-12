@@ -1,9 +1,22 @@
 from nltk.tokenize import RegexpTokenizer
 from nltk import pos_tag
 from nltk import RegexpParser
-tokenizer = RegexpTokenizer(r'\w+')
-userInput = "The first rule of fight club is: we don't talk about fight club."
-filtered_text=tokenizer.tokenize(userInput)
-tokens_tag = pos_tag(filtered_text)
-print("Filtered text:", filtered_text)
-print("Tagged text:", tokens_tag)
+from nltk.chat.util import Chat, reflections
+from chatterbot import ChatBot
+from chatterbot.trainers import ChatterBotCorpusTrainer
+
+#Bot named after Marty McFly, change if necessary
+bot = ChatBot("McFly")
+#Training data. Could use a lot more work
+trainer = ChatterBotCorpusTrainer(bot)
+trainer.train("chatterbot.corpus.english")
+
+#Chat feature
+while True:
+    message = input("\t\t\tYou:")
+    if message.strip()!= "Bye":
+        reply = bot.get_response(message)
+        print("McFly:", reply)
+    if message.strip() == "Bye":
+        print("McFly: Bye")
+        break
