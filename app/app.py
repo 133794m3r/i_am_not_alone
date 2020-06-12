@@ -36,7 +36,6 @@ def chat():
 			else:
 				return "No msg received"
 
-
 if __name__ == '__main__':
 	app.SECRET_KEY = 'super secret key'
 	app.config['SESSION_TYPE'] = 'filesystem'
