@@ -50,6 +50,10 @@ key: sorry
 key: apologise
   decomp: *
     reasmb: goto sorry
+ key: kill
+   decomp:*
+    reaseb: Please call 1-800-273-8255 U.S.suicide prevention hotline
+ 
 key: remember 5
   decomp: * i remember *
     reasmb: Do you often think of (2) ?
