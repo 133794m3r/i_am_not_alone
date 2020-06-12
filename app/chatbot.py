@@ -4,12 +4,19 @@ from nltk import RegexpParser
 from nltk.chat.util import Chat, reflections
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
+from chatterbot.trainers import ListTrainer
+import os
 
 #Bot named after Marty McFly, change if necessary
 bot = ChatBot("McFly")
-#Training data. Could use a lot more work
-trainer = ChatterBotCorpusTrainer(bot)
+
+#Training
+trainer = ListTrainer(bot)
 trainer.train("chatterbot.corpus.english")
+
+for files in os.listdir("./english/"):
+    data = open("./english/" + files, "r").readlines()
+    trainer.train(data)
 
 #Chat feature
 while True:
