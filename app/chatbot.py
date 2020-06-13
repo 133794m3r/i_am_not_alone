@@ -11,12 +11,13 @@ import os
 bot = ChatBot("McFly")
 
 #Training
-trainer = ListTrainer(bot)
+#trainer = ListTrainer(bot)
+trainer=ChatterBotCorpusTrainer(bot)
 trainer.train("chatterbot.corpus.english")
 
 for files in os.listdir("./english/"):
-    data = open("./english/" + files, "r").readlines()
-    trainer.train(data)
+    #data = open("./english/" + files, "r").readlines()
+    trainer.train('./english/'+files)
 
 #Chat feature
 while True:
