@@ -16,8 +16,10 @@ def main():
 			else:
 				ips=list(IPv4Network(network).hosts())
 				start=str(ips[0])
+				start_int=int(ips[0])
+				end_int=int(ips[-1])
 				end=str(ips[-1])
-			tmp_list=[start,end,geoname_id,country_iso_code,country_name,continent_name]
+			tmp_list=[start_int,end_int,start,end,geoname_id,country_iso_code,country_name,continent_name]
 			#fw.write('",'.join(tmp_list)+'\n')
 
 			writer.writerow(tmp_list)
