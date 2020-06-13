@@ -19,6 +19,8 @@ pre: were was
 pre: you're you are
 pre: i'm i am
 pre: same alike
+pre: tell me
+pre: i want to hear
 post: am are
 post: your my
 post: me you
@@ -47,6 +49,23 @@ key: sorry
     reasmb: Please don't apologise.
     reasmb: Apologies are not necessary.
     reasmb: I've told you that apologies are not required.
+key: suicidal 100
+  decomp: *
+    reasmb: SUICIDE_RESP It's not too late. Reach out to someone now!
+    reasmb: SUICIDE_RESP There's a real person you can talk to right now!
+key: depressed 50
+  dcomp: * i feel *
+    reasmb: SUICIDE_RESP If you want to talk to a real person here are some numbers.
+key: coronavirus
+  decomp: * have *
+    reasmb: goto covid19
+key: covid
+  decomp: * have *
+    reasmb: goto covid19
+key: covid19 100
+  decomp: *
+    reasmb: COVID19_RESP if you, or someone you know might be showing symptoms of the novel coronavirus(covid19) go to
+    reasmb: COVID19_RESP If you, or someone you know might have symptoms of the novel coronavirus(covid19) go to
 key: apologise
   decomp: *
     reasmb: goto sorry
@@ -357,4 +376,63 @@ key: alike 10
 key: like 10
   decomp: * @be * like *
     reasmb: goto alike
+ key: joke 20
+ 	decomp: *
+    reasmb: Did you hear the one about the mountain goats in the andes? It was "ba a a a a a d".
+    reasmb: I never forget a face, but in your case I'll make an exception.
+    reasmb: It is better to be silent and be thought a fool, than to open your mouth and remove all doubt.
+    reasmb: O'm a not a comedy why don't you check out a joke?
+    reasmb: two vultures boarded a plane, each carrying two dead raccoons. the  stewardess stops them and says "sorry sir, only one carrion per  passenger."
+    reasmb: 'what did the buddhist say to the hot dog vendor?  "make me one with everything."'
+    reasmb: 'nasa recently sent a number of holsteins into orbit for experimental purposes. they called it the herd shot round the world. '
+    reasmb: 'two boll weevils grew up in s. carolina. one took off to hollywood  and became a rich star. the other stayed in carolina and never amounted  to much -- and naturally became known as the lesser of two weevils. '
+    reasmb: Two eskimos in a kayak were chilly, so they started a fire, which sank the craft, proving the old adage you can't have your kayak and heat it too.
+    reasmb: A 3-legged dog walks into an old west saloon, slides up to the bar and announces "I'm looking for the man who shot my paw."
+    reasmb: Did you hear about the buddhist who went to the dentist, and refused to take novocain? he wanted to transcend dental medication.
+    reasmb: there was a man who sent 10 puns to some friends in hopes at least one  of the  puns would make them laugh. unfortunately no pun in ten did!!!
+    reasmb: What do you get when you cross a murderer and frosted flakes? A cereal killer.
+    reasmb: What do you get when you cross a country and an automobile? Carnation.
+    reasmb: What do you get when you cross a cheetah and a hamburger? Fast food.
+    reasmb: What do you get when you cross finals and a chicken? Eggs-ams.
+    reasmb: What do you get when you cross a rabbit and a lawn sprinkler? Hare spray.
+    reasmb: What do you get when you cross an excited alien and a chicken? Eggs-cited eggs-traterrestrial
+    reasmb: What do you get when you cross an alien and a chicken? Eggs-traterrestrial.
+    reasmb: What do you get when you cross music and an automobile? Cartune.
+    reasmb: what do you get when you cross sour music and an assistant?
+    reasmb: what do you get when you cross music and an assistant?
+    reasmb: what do you get when you cross a serious thief and a mad young man?
+    reasmb: what do you get when you cross a serious thief and a crazy rabbit?
+    reasmb: what do you get when you cross a poppy and electricity?
+    reasmb: what do you get when you cross a dance and a cheetah?
+    reasmb: what do you get when you cross a dance and a lemon?
+    reasmb: what do you get when you cross a port and frosted flakes?
+    reasmb: what do you get when you cross a port and a murderer?
+    reasmb: what do you get when you cross a bank and a skunk?
+    reasmb: what do you get when you cross a ding and milk?
+    reasmb: what do you get when you cross a road and a strawberry?
+    reasmb: what do you get when you cross a road and jelly?
+    reasmb: what do you get when you cross a toad and a galaxy?
+    reasmb: what do you get when you cross a dog and sandpaper?
+    reasmb: what do you get when you cross a bug and a relative?
+    reasmb: what do you get when you cross a bad bug and canned sand?
+    reasmb: what do you get when you cross an ant and a rabbit?
+    reasmb: what do you get when you cross a cat and a purple person?
+    reasmb: what do you get when you cross a cat and a killer?
+    reasmb: what do you get when you cross a cat and a lemon?
+    reasmb: what do you get when you cross a cat and a tune?
+    reasmb: what do you get when you cross a cat and a band?
+    reasmb: what do you get when you cross a pig and a ninja?
+	reasmb: Don't use "beef stew" as a computer password. It's not stroganoff.
+	reasmb: Did you hear about the monkeys who shared an Amazon account? They were Prime mates.
+key: jokes
+	decomp: * know any *
+    reasmb: what do you get when you cross a crazy cow and a banned parrot?
+    reasmb: what do you get when you cross a cow and a lemon?
+    reasmb: what do you get when you cross a bad cow and a canned hat?
+key: humor 20
+	decomp: what is
+    reasmb: An emotion associated with laughter.
+key: humour 20
+	decomp: what is
+    reasmb: An emotion associated with laughter.
    

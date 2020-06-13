@@ -35,10 +35,14 @@ def chat():
 		else:
 			#if request.form.get('msg') is not None:
 			response_msg=session['eliza'].respond(user_data.get('msg'))
-
+		if "COVID19_RESP" in response_msg:
+			pass
+		elif "SUICIDE_RESP" in response_msg:
+			pass
 	return jsonify({'name':'eliza','msg':response_msg})
 @app.route('/chatter')
 def chatter():
+	session.clear()
 	return app.send_static_file('chatter.html')
 
 if __name__ == '__main__':
