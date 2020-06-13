@@ -36,6 +36,7 @@ synon: happy elated glad better
 synon: cannot can't
 synon: everyone everybody nobody noone
 synon: be am is are was
+
 key: xnone
   decomp: *
     reasmb: I'm not sure I understand you fully.
@@ -357,4 +358,3 @@ key: alike 10
 key: like 10
   decomp: * @be * like *
     reasmb: goto alike
-   
