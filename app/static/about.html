@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	<style rel="stylesheet">
+
+    nav{
+      background: rgba(0, 0, 0, 0.1);
+      padding:0 20px;
+    }
+    body{
+      background-image: url('../static/earth.jpg');
+      background-size: cover;
+      width: 100%;
+    }
+    .center {
+        /* this will keep the content center */
+        position: absolute;
+        right: 0;
+        left: 0;
+        margin: auto;
+    }
+    .msg-group {
+    	position: absolute;
+        height: 90%;
+        overflow-y: scroll;  /*if the content beyond width and height, use the scrollbar*/
+    }
+
+    .card {
+        padding: 10px 0 10px 0;
+    }
+
+    .input-group {
+    	position: absolute;
+			height: 7%;
+    	bottom: 0;
+			left:0;
+    }
+
+    .btn {
+        height:100%;
+    }
+		#main{
+			background: rgba(0, 0, 0, 0.1);
+		}
+	#container{
+		text-align:center;
+
+		color:white;
+
+	}
+	</style>
+	<script src="../static/chat_bot.js"></script>
+</head>
+<body>
+<div id="main">
+<nav>
+  <div class="nav-wrapper">
+     <a href="#" class="brand-logo">I Am Not Alone</a>
+
+     <ul class="right hide-on-med-and-down">
+
+       <li><a href="/" class="red">Home</a></li>
+       <li><a href="/chat">Chat with someone</a></li>
+       <li><a href="/about">About</a></li>
+
+     </ul>
+  </div>
+</nav>
+<div id="container">
+	<h1>About Us</h1>
+	<p>The creators of our project</p>
+	<p>Please refer to our github or linkedin profiles</p>
+	<p>Richard Ho:<a href="https://github.com/richardho200">Github</a> and <a href=https://www.linkedin.com/in/richard-h-62574018b/>LinnkedIn</a> </p>
+	<p>Yiwen Dai: <a href="https://github.com/yiwen-dai">Github</a> and <a href="https://www.linkedin.com/in/yiwendai">LinkedIn</a> </p>
+	<p>Macarthur Inbody:  <a href="https://transcendental.us">Home Page</a> and <a href="https://www.linkedin.com/in/macarthur-inbody">LinkedIn</a>a</p>
+	<p>Nithya Jayakumar: <a href="https://github.com/SpaceOddity404">Github</a> and <a href="https://www.linkedin.com/in/nithyajayakumar/">LinkedIn</a> </p>
+</div>
+</div>
+</body>
+</html>
