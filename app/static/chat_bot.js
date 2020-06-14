@@ -1,6 +1,6 @@
 function send_msg(msg_to_send){
     let ajax= new XMLHttpRequest();
-    ajax.open('POST','/chat');
+    ajax.open('POST','/msg');
     ajax.setRequestHeader("Content-Type", "application/json");
     ajax.send(JSON.stringify(msg_to_send));
 

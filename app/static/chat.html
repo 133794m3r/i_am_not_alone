@@ -4,8 +4,30 @@
 	<meta charset="UTF-8">
 	<title>Title</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 	<style rel="stylesheet">
-    .center {
+    nav{
+      position: fixed;
+      background: rgba(0, 0, 0, 0.5);
+      padding:0px 20px;
+    }
+
+    section{
+      background-image: url(earth.jpg);
+      background-size: cover;
+      width: 100%;
+      height: 800px;
+    }
+    .box{
+      margin-top: 20px;
+      height: 1000px;
+    }
+
+    nav li a:hover{
+      background: red;
+    }
+
+    .center2 {
         /* this will keep the content center */
         position: absolute;
         right: 0;
@@ -14,7 +36,7 @@
     }
     .msg-group {
     	position: absolute;
-        height: 93%;
+        height: 90%;
         overflow-y: scroll;  /*if the content beyond width and height, use the scrollbar*/
     }
 
@@ -32,12 +54,33 @@
     .btn {
         height:100%;
     }
+		nav{
+			max-width:100%;
+		}
+		#msg_block{
+			margin-top:5rem;
+		}
+
 	</style>
 	<script src="../static/chat_bot.js"></script>
 </head>
 <body>
+<nav>
+  <div class="nav-wrapper">
+     <a href="#" class="brand-logo">I Am Not Alone</a>
+
+     <ul class="right hide-on-med-and-down">
+
+       <li><a href="/" class="red">Home</a></li>
+       <li><a href="/chat">Chat with someone</a></li>
+       <li><a href="/about">About</a></li>
+
+     </ul>
+  </div>
+</nav>
  <div class="container">
-		<div id='msg_block' class="msg-group center">
+
+		<div id='msg_block' class="msg-group center2">
 		</div>
 
 		<div class="input-group">

@@ -47,11 +47,14 @@ def get_ips(specific_ip):
 
 @app.route('/')
 def index():
-    import os
-    return os.getenv('mdb_pass')
-
-@app.route('/chat',methods=["POST","GET"])
-def chat():
+    # import os
+    # return os.getenv('mdb_pass')
+    return app.send_static_file('home.html')
+@app.route('/about')
+def about():
+    return app.send_static_file('about.html')
+@app.route('/msg',methods=["POST","GET"])
+def msg():
     user_msg=''
     user_data={}
     response_msg=''
@@ -87,10 +90,10 @@ def chat():
     return jsonify({'name':'eliza','msg':response_msg})
 
 
-@app.route('/chatter')
-def chatter():
-    session.clear()
-    return app.send_static_file('chatter.html')
+@app.route('/chat')
+def chat():
+    #session.clear()
+    return app.send_static_file('chat.html')
 
 if __name__ == '__main__':
     app.SECRET_KEY = 'super secret key'
