@@ -86,6 +86,7 @@ def chat():
 
     return jsonify({'name':'eliza','msg':response_msg})
 
+
 @app.route('/chatter')
 def chatter():
     session.clear()

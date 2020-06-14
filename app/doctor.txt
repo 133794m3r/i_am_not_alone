@@ -38,6 +38,7 @@ synon: happy elated glad better
 synon: cannot can't
 synon: everyone everybody nobody noone
 synon: be am is are was
+
 key: xnone
   decomp: *
     reasmb: I'm not sure I understand you fully.
@@ -69,6 +70,10 @@ key: covid19 100
 key: apologise
   decomp: *
     reasmb: goto sorry
+ key: kill
+   decomp:*
+    reaseb: Please call 1-800-273-8255 U.S.suicide prevention hotline
+ 
 key: remember 5
   decomp: * i remember *
     reasmb: Do you often think of (2) ?
@@ -435,4 +440,3 @@ key: humor 20
 key: humour 20
 	decomp: what is
     reasmb: An emotion associated with laughter.
-   
