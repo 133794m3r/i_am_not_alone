@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<style rel="stylesheet">
+    .center {
+        /* this will keep the content center */
+        position: absolute;
+        right: 0;
+        left: 0;
+        margin: auto;
+    }
+    .msg-group {
+    	position: absolute;
+        height: 93%;
+        overflow-y: scroll;  /*if the content beyond width and height, use the scrollbar*/
+    }
+
+    .card {
+        padding: 10px 0 10px 0;
+    }
+
+    .input-group {
+    	position: absolute;
+			height: 7%;
+    	bottom: 0;
+			left:0;
+    }
+
+    .btn {
+        height:100%;
+    }
+	</style>
+	<script src="../static/chat_bot.js"></script>
+</head>
+<body>
+ <div class="container">
+		<div id='msg_block' class="msg-group center">
+		</div>
+
+		<div class="input-group">
+			<textarea id="input_box" class="form-control" rows="1" placeholder="Say something..." onkeypress="update_msg(event);"></textarea>
+			 <span class="input-group-btn">
+						<button class="btn btn-secondary" type="button" onclick="clear_me()">send</button>
+				</span>
+	 </div>
+ </div>
+<script type="text/javascript">
+	window.onload=function(){
+	    console.log('test')
+	    send_msg({'name':'You','msg':''});
+	}
+	function clear_me(){
+			document.querySelector('#input_box').value=''
+	}
+	</script>
+</body>
+</html>
