@@ -2,7 +2,7 @@ from flask import Flask,session,render_template,redirect,abort,url_for,request, 
 from flask_mongoengine import MongoEngine
 from flask_session import Session
 from flask_pymongo import PyMongo
-import eliza
+import eliza,json
 
 #from json import loads as json_parse
 def init_session(name):
@@ -18,21 +18,31 @@ Session(app)
 
 mongo = PyMongo(app)
 
-@app.route('/crisis/<specific_ip>')
-def get_ips(specific_ip):
+def get_country(specific_ip):
     from ipaddress import IPv4Address
     specific_ip=int(IPv4Address(specific_ip))
     ips=mongo.db.ip_address_map.find_one({"start_int":{"$lte":specific_ip},"end_int":{"$gte":specific_ip}}
                                              ,{"_id":0,"end":0,"geoname_id":0,"start":0,"end":0,"country_iso_code":0})
     if ips is None:
-        return jsonify({'err':"private ip address found"})
+        return None
+    else:
+        return ips['country_name']
 
-    country=ips['country_name']
+def crisis_info(specific_ip):
+    country=get_country(specific_ip)
+    if country is None:
+        return "Please look for a local crisis hotline number on your search engine."
+
     response=mongo.db.crisis_numbers.find_one({"country":country},{"_id":0})
 
     if response is None:
         response="Please look for a local crisis hotline number on your search engine."
 
+    return response
+
+@app.route('/crisis/<specific_ip>')
+def get_ips(specific_ip):
+    response=crisis_info(specific_ip)
     return jsonify(response)
 
 @app.route('/')
@@ -63,9 +73,16 @@ def chat():
             #if request.form.get('msg') is not None:
             response_msg=session['eliza'].respond(user_data.get('msg'))
         if "COVID19_RESP" in response_msg:
-            pass
+            country=get_country(request.remote_addr)
+            if country == "United States":
+                emergency_info = " <a href='https://www.cdc.gov/coronavirus/2019-ncov/index.html'>CDC COVID19 Home Page</a>"
+            else:
+                emergency_info = " <a href='https://www.who.int/health-topics/coronavirus'>WHO COVID19 Home Page</a>"
+
+            response_msg = response_msg[13:] + emergency_info
         elif "SUICIDE_RESP" in response_msg:
-            pass
+            emergency_info=crisis_info(request.remote_addr)
+            response_msg = response_msg[13:] +" "+ emergency_info
 
     return jsonify({'name':'eliza','msg':response_msg})
 
