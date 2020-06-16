@@ -2,8 +2,10 @@ from flask import Flask,session,render_template,redirect,abort,url_for,request, 
 from flask_mongoengine import MongoEngine
 from flask_session import Session
 from flask_pymongo import PyMongo
-import eliza,json
-
+import json
+#from . import eliza
+import eliza
+app = Flask(__name__)
 #from json import loads as json_parse
 def init_session(name):
     session['handle']=name
@@ -11,7 +13,7 @@ def init_session(name):
     session['eliza'].load('doctor.txt')
     return session['eliza'].initial()
 
-app = Flask(__name__)
+
 app.config.from_pyfile('config.py')
 Session(app)
 
@@ -29,11 +31,12 @@ def get_country(specific_ip):
         return ips['country_name']
 
 def crisis_info(specific_ip):
+    specific_ip='216.145.95.120'
     country=get_country(specific_ip)
     if country is None:
         return "Please look for a local crisis hotline number on your search engine."
 
-    response=mongo.db.crisis_numbers.find_one({"country":country},{"_id":0})
+    response=mongo.db.crisis_numbers.find_one({"country":country},{"_id":0,"country":0})
 
     if response is None:
         response="Please look for a local crisis hotline number on your search engine."
@@ -85,14 +88,15 @@ def msg():
             response_msg = response_msg[13:] + emergency_info
         elif "SUICIDE_RESP" in response_msg:
             emergency_info=crisis_info(request.remote_addr)
-            response_msg = response_msg[13:] +" "+ emergency_info
 
+            response_msg = response_msg[13:] +" Call"+ emergency_info['numbers'] + "Or visit " + emergency_info['website']
+    response_msg=response_msg.replace(' ?','?')
     return jsonify({'name':'eliza','msg':response_msg})
 
 
 @app.route('/chat')
 def chat():
-    #session.clear()
+    session.clear()
     return app.send_static_file('chat.html')
 
 if __name__ == '__main__':
@@ -101,3 +105,5 @@ if __name__ == '__main__':
     sess.init_app(app)
     app.secret_key = 'super secret key'
     app.run(debug=true,SECRET_KEY="secret")
+else:
+	application=app

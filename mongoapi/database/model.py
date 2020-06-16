@@ -1,6 +1,6 @@
 from .db import db
 
-class ip_address_map(db.Document):
+class Ip_address_map(db.Document):
     start_int = db.IntField(required=True, unique=True)
     end_int = db.IntField(required=True)
     geoname_id = db.IntField(required=True)
