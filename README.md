@@ -8,3 +8,9 @@ This project has being created for the purposes of the Same Home Different Hacks
 Contributers:
 Macarthur Inbody, Richard Ho, Yiwen Dai, and Nithya Jayakumar
 
+
+View it live here. 
+https://iamnotforgotten.online/
+
+After 2021 see it live at
+https://crimsonstrife.com * Will be updated in the future with a subdomain once I get that done.
