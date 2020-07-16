@@ -1,8 +1,9 @@
 from flask import Flask,session,render_template,redirect,abort,url_for,request, Response,jsonify
-from flask_mongoengine import MongoEngine
 from flask_session import Session
 from flask_pymongo import PyMongo
-import eliza,json
+import json
+#from . import eliza
+import eliza
 
 #from json import loads as json_parse
 def init_session(name):
@@ -37,7 +38,8 @@ def crisis_info(specific_ip):
 
     if response is None:
         response="Please look for a local crisis hotline number on your search engine."
-
+    else:
+        response="Please call "+response['numbers']+" or if you want to visit the site of a support group go to "+response['website']
     return response
 
 @app.route('/crisis/<specific_ip>')
@@ -87,7 +89,7 @@ def msg():
             emergency_info=crisis_info(request.remote_addr)
             response_msg = response_msg[13:] +" "+ emergency_info
 
-    return jsonify({'name':'eliza','msg':response_msg})
+    return jsonify({'name':'Eliza','msg':response_msg})
 
 
 @app.route('/chat')
@@ -101,3 +103,5 @@ if __name__ == '__main__':
     sess.init_app(app)
     app.secret_key = 'super secret key'
     app.run(debug=true,SECRET_KEY="secret")
+else:
+    application = app
