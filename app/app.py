@@ -1,7 +1,9 @@
 from flask import Flask,session,render_template,redirect,abort,url_for,request, Response,jsonify
 from flask_session import Session
 from flask_pymongo import PyMongo
-import json, eliza
+import json
+#from . import eliza
+import eliza
 
 #from json import loads as json_parse
 def init_session(name):
